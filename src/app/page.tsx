@@ -21,7 +21,7 @@ export default function Home() {
             <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
               <div className="text-2xl mb-2">🎁</div>
               <h3 className="font-medium mb-2">Create your list</h3>
-              <p className="text-gray-600 dark:text-gray-400">Add gifts you'd love to receive</p>
+              <p className="text-gray-600 dark:text-gray-400">Add gifts you&apos;d love to receive</p>
             </div>
             <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
               <div className="text-2xl mb-2">🔗</div>

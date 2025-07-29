@@ -52,7 +52,7 @@ export default function CreateListForm() {
       } else {
         alert('Failed to create list. Please try again.')
       }
-    } catch (error) {
+    } catch {
       alert('Something went wrong. Please try again.')
     } finally {
       setIsLoading(false)

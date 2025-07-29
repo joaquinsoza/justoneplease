@@ -48,7 +48,7 @@ export default function GiftListView({ giftList }: GiftListViewProps) {
       } else {
         alert('Failed to update item. Please try again.')
       }
-    } catch (error) {
+    } catch {
       alert('Something went wrong. Please try again.')
     } finally {
       setIsLoading(null)
@@ -60,7 +60,7 @@ export default function GiftListView({ giftList }: GiftListViewProps) {
     try {
       await navigator.clipboard.writeText(shareUrl)
       alert('Link copied to clipboard!')
-    } catch (error) {
+    } catch {
       alert('Failed to copy link. Please copy the URL manually.')
     }
   }
