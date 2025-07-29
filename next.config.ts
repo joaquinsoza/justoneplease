@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals.push('_http_common');
+    }
+    return config;
+  },
+  // Exclude prisma directory from build
+  serverComponentsExternalPackages: ['@prisma/client', 'prisma']
 };
 
 export default nextConfig;
