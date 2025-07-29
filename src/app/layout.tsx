@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "JustOnePlease - Share Your Gift Lists",
   description: "Create and share gift wish lists easily. Let others mark items as bought to avoid duplicates.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 
 export default function RootLayout({

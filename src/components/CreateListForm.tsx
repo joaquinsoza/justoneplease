@@ -60,8 +60,8 @@ export default function CreateListForm() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border border-gray-200 dark:border-gray-700">
+      <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
         <div>
           <label htmlFor="listName" className="block text-sm font-medium mb-2">
             List Name
@@ -72,38 +72,43 @@ export default function CreateListForm() {
             value={listName}
             onChange={(e) => setListName(e.target.value)}
             placeholder="e.g., Diego's Birthday List"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-foreground placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-4 text-base rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-foreground placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
             required
+            autoComplete="off"
+            autoCapitalize="words"
           />
         </div>
 
         <div>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
             <label className="block text-sm font-medium">Gift Items</label>
             <button
               type="button"
               onClick={addItem}
-              className="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="px-4 py-3 text-sm font-medium bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors touch-manipulation min-h-[44px] flex items-center justify-center"
             >
-              Add Item
+              + Add Item
             </button>
           </div>
           
           <div className="space-y-3">
             {items.map((item, index) => (
-              <div key={index} className="flex gap-2">
+              <div key={index} className="flex gap-2 sm:gap-3">
                 <input
                   type="text"
                   value={item}
                   onChange={(e) => updateItem(index, e.target.value)}
                   placeholder="Enter gift item..."
-                  className="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-foreground placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="flex-1 px-4 py-4 text-base rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-foreground placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  autoComplete="off"
+                  autoCapitalize="sentences"
                 />
                 {items.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removeItem(index)}
-                    className="px-3 py-3 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors touch-manipulation"
+                    aria-label="Remove item"
                   >
                     ✕
                   </button>
@@ -116,7 +121,7 @@ export default function CreateListForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+          className="w-full py-4 sm:py-5 text-base font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none touch-manipulation min-h-[52px]"
         >
           {isLoading ? 'Creating List...' : 'Create & Share List'}
         </button>
